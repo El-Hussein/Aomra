@@ -6,7 +6,8 @@ import {
     Image,
     TextInput,
     TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    PixelRatio
 } from 'react-native';
 import {
     widthPercentageToDP as wp,
@@ -15,23 +16,6 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
-import { Dimensions, Platform, PixelRatio } from 'react-native';
-
-const {
-  width: SCREEN_WIDTH,
-} = Dimensions.get('window');
-
-// based on iphone 5s's scale
-const scale = SCREEN_WIDTH / 411;
-
-export function normalize(size) {
-  const newSize = size * scale 
-  if (Platform.OS === 'ios') {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize))
-  } else {
-    return Math.round(PixelRatio.roundToNearestPixel(newSize)) - 2
-  }
-}
 
 import BG from '../../Imag/Artboard1/BG.png';
 import Logo from '../../Imag/Artboard1/Logo.png';
@@ -46,7 +30,6 @@ class Artboard1 extends Component{
 
     constructor(props) {
          super()
-        alert(SCREEN_WIDTH);
     }
     render () {
          return (
@@ -129,7 +112,10 @@ class Artboard1 extends Component{
 }
 
 export default Artboard1
-
+var FONT_BACK_LABEL   = 18;
+if (PixelRatio.get() <= 2) {
+    FONT_BACK_LABEL = 14;
+}
 const styles = StyleSheet.create({
     header:{
         height:hp('7%'),
@@ -188,7 +174,7 @@ const styles = StyleSheet.create({
     buttonText:{
         color:'white', 
         textAlign:'center', 
-        fontSize:normalize(18), 
+        fontSize:FONT_BACK_LABEL, 
         fontWeight:'600'
     },
     social:{
