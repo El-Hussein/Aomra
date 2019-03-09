@@ -92,7 +92,7 @@ class Artboard6 extends Component{
                     </View>
 
                     <View style={{justifyContent:'center', alignItems:'center'}}>
-                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}} onPress={()=>{this.props.navigation.navigate('Payment')}}>
+                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}} onPress={()=>{alert('if user is already signed in go on else navigate to login page.');this.props.navigation.navigate('Payment')}}>
                             <Image source={ButtonBG} style={{width:wp('30%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
                                 <View>
                                 <Text style={styles.buttonText}> {localization.agree} </Text>
