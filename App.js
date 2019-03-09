@@ -29,9 +29,12 @@ import React, {Component} from 'react';
 import ReduxThunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
+import { I18nManager, AsyncStorage } from 'react-native';
 import reducers from './src/app/reducers';
+import localization from './src/app/localization/localization';
 
-import SplashScreen from './app/pages/SplashScreen';
+import SplashScreen2 from './app/pages/SplashScreen2';
+import SplashScreen5 from './app/pages/SplashScreen5';
 import RootNavigator, {middleware} from './src/app/navigators/RootNavigator';
 
 export default class App extends Component {
@@ -39,15 +42,29 @@ export default class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      rootPage: <SplashScreen />
+      rootPage: <SplashScreen2 />,
+      language:'en'
     }
+    setTimeout(
+      ()=>{
+        this.setState({
+          rootPage: <SplashScreen5 />
+        });
+      },2000
+    )
     setTimeout(
       ()=>{
         this.setState({
           rootPage: <RootNavigator />
         });
-      },1000
+      },4000
     )
+    localization.setLanguage(this.state.language);
+    if(this.state.language=='ar'){
+      I18nManager.forceRTL(true);
+    }else if(this.state.language=='en'){
+      I18nManager.forceRTL(false);
+    }
   }
 
   store = createStore(reducers, {}, applyMiddleware(middleware) );

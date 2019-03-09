@@ -15,6 +15,7 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import localization from '../localization/localization';
 
 import BG from '../../Imag/Artboard2/BG.png';
 import Logo from '../../Imag/Artboard2/Logo.png';
@@ -36,7 +37,7 @@ class Artboard2 extends Component{
          return (
             <ImageBackground source={BG}  style={styles.pageBG}>
                 {/* HEADER */}
-                <Header title="تسجيل الدخول" backScreen="SignIn"/>
+                <Header title={localization.signIn} backScreen="SignIn"/>
                 
                 
                 <View style={{justifyContent:'center', alignItems:'center'}}>
@@ -47,7 +48,7 @@ class Artboard2 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="الاسم"
+                            placeholder={localization.userName}
                             autoCorrect={false}
                             returnKeyType="next"
                             ref="username"
@@ -60,10 +61,10 @@ class Artboard2 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="البريد الاكتروني"
+                            placeholder={localization.email}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="password"
+                            ref="email"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />
@@ -73,10 +74,10 @@ class Artboard2 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="البلد"
+                            placeholder={localization.country}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="username"
+                            ref="country"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />
@@ -86,10 +87,10 @@ class Artboard2 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="المدينة"
+                            placeholder={localization.city}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="username"
+                            ref="city"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />
@@ -99,10 +100,10 @@ class Artboard2 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="العنوان"
+                            placeholder={localization.address}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="username"
+                            ref="address"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />
@@ -112,10 +113,10 @@ class Artboard2 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="رقم الهاتف"
+                            placeholder={localization.phoneNumber}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="username"
+                            ref="phone"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />
@@ -125,10 +126,10 @@ class Artboard2 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="كلمه المرور"
+                            placeholder={localization.password}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="username"
+                            ref="password"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />
@@ -139,7 +140,7 @@ class Artboard2 extends Component{
                         <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}}>
                             <Image source={ButtonBG} style={{width:wp('30%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
                                 <View>
-                                <Text style={styles.buttonText}> التالي </Text>
+                                <Text style={styles.buttonText}> {localization.next} </Text>
                             </View>
                         </TouchableOpacity>
                     </View>

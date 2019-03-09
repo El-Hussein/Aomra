@@ -6,7 +6,8 @@ import {
     Image,
     TextInput,
     TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    FlatList
 } from 'react-native';
 import {
     widthPercentageToDP as wp,
@@ -15,6 +16,8 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import { RadioButton } from 'react-native-paper';
+import localization from '../localization/localization';
 
 import BG from '../../Imag/Artboard6/BG.png';
 import ArrowRight from '../../Imag/Artboard6/ArrowRight.png';
@@ -24,81 +27,74 @@ import ButtonBG from '../../Imag/Artboard1/ButtonBG.png';
 class Artboard6 extends Component{
 
     constructor(props) {
-         super()
+        super()
+        this.state = {
+            ch: 2,
+            times:[
+                {id:0, dateGo:'الجمعة 25 يناير 2019', dateBack:'السبت 26 يناير 2019'},
+                {id:1, dateGo:'الجمعة 25 يناير 2019', dateBack:'السبت 26 يناير 2019'},
+                {id:2, dateGo:'الجمعة 25 يناير 2019', dateBack:'السبت 26 يناير 2019'},
+            ]
+        };
     }
+
+    checked = 2;
+    renderItemFlat ({item}){
+        return (
+        <View style={{width:wp('100%'), margin:hp('1%'), justifyContent:'center', alignItems:'center', flexDirection:'row'}}>
+            <View style={{borderRadius:wp('2%'), backgroundColor:'rgba(255,255,255,0.7)', borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('42%'), justifyContent:'center', alignItems:'center'}}>
+                <Text style={{fontSize:wp('4.2%'), color:'#7E7560', paddingTop:wp('1%'), fontWeight:'700'}}> {localization.travelDate} </Text>
+                <Text style={{fontSize:wp('3.8%'), color:'black', paddingBottom:wp('1%'), fontWeight:'700'}}> {item.dateGo} </Text>
+            </View>
+            <View style={{borderRadius:wp('2%'), backgroundColor:'rgba(255,255,255,0.7)', borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('42%'), justifyContent:'center', alignItems:'center'}}>
+                <Text style={{fontSize:wp('4.2%'), color:'#7E7560', paddingTop:wp('1%'), fontWeight:'700'}}> {localization.arrivalDate} </Text>
+                <Text style={{fontSize:wp('3.8%'), color:'black', paddingBottom:wp('1%'), fontWeight:'700'}}> {item.dateBack} </Text>
+            </View>
+            <RadioButton
+            value={item.id}
+            status={this.checked == item.id ? 'checked' : 'unchecked'}
+            onPress={() => { 
+                this.setState({ ch: item.id }); 
+                this.checked = item.id;
+            }}
+            color='#A07531'
+            />
+        </View>
+        )
+    }
+    
     render () {
+        
          return (
             <ImageBackground source={BG}  style={styles.pageBG}>
                 {/* HEADER */}
-                <Header title="الحجز" backScreen="Hoom" drawer={true}/>
+                <Header title={localization.travelDetails} backScreen="Hoom" drawer={true}/>
                 
-                <View style={{justifyContent:'center', alignItems:'center'}}>
-                    <View style={{marginTop:hp('2%'), borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('84%'), height:hp('5%'), flexDirection:'row'}}>                   
-                        <TouchableOpacity disabled={true} style={{flexDirection:'row', width:wp('42%'), height:hp('4.9%'), backgroundColor:'rgba(152, 145, 128, 0.7)', justifyContent:'center', alignItems:'center'}}>
-                            <Text style={{textAlignVertical:'center', textAlign:'center', fontSize:wp('4%'), fontWeight:'500', color:'white'}}> ذهاب وعودة </Text>
-                            <Image source={ArrowsS} style={{width:wp('5%'), height:wp('5%'), resizeMode:'contain'}}/>                        
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{flexDirection:'row', width:wp('42%'), height:hp('4.9%'), backgroundColor:'rgba(255, 255, 255, 0.7)', justifyContent:'center', alignItems:'center'}}>
-                            <Text style={{textAlignVertical:'center', textAlign:'center', fontSize:wp('4%'), fontWeight:'500', color:'#989180'}}> ذهاب </Text>
-                            <Image source={ArrowRight} style={{width:wp('5%'), height:wp('5%'), resizeMode:'contain'}}/>                        
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                
                     
-                <View style={{justifyContent:'center', alignItems:'center', marginTop:hp('1%')}}>
+                <View style={{justifyContent:'center', alignItems:'center', marginTop:hp('20%')}}>
                    
-                    <View style={{width:wp('84%'), justifyContent:'center', alignItems:'center', flexDirection:'row'}}>
-                        <View style={{borderRadius:wp('2%'), backgroundColor:'rgba(255,255,255,0.7)', borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('42%'), justifyContent:'center', alignItems:'center'}}>
-                            <Text style={{fontSize:wp('4.2%'), color:'#7E7560', paddingTop:wp('2%'), fontWeight:'700'}}> تاريخ الذهاب </Text>
-                            <Text style={{fontSize:wp('4.5%'), color:'black', paddingVertical:wp('2%'), fontWeight:'700'}}> العليا  </Text>
-                            <Text style={{fontSize:wp('4.5%'), color:'black', paddingBottom:wp('2%'), fontWeight:'700'}}> الرياض  </Text>
-                        </View>
-                        <View style={{borderRadius:wp('2%'), backgroundColor:'rgba(255,255,255,0.7)', borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('42%'), justifyContent:'center', alignItems:'center'}}>
-                            <Text style={{fontSize:wp('4.2%'), color:'#7E7560', paddingTop:wp('2%'), fontWeight:'700'}}> تاريخ العودة </Text>
-                            <Text style={{fontSize:wp('4.5%'), color:'black', paddingVertical:wp('2%'), fontWeight:'700'}}> العليا  </Text>
-                            <Text style={{fontSize:wp('4.5%'), color:'black', paddingBottom:wp('2%'), fontWeight:'700'}}> المدينة  </Text>
-                        </View>
-                        <View style={{borderRadius:wp('4%'), position:'absolute', justifyContent:'center', alignItems:'center', backgroundColor:'#7E7560', width:wp('8%'), height:wp('8%')}}>
-                            <Image source={ArrowsS} style={{resizeMode:'contain', width:wp('6.5%'), height:wp('6.5%')}}/>
-                        </View>
-                    </View>
+                <FlatList 
+                    data={this.state.times}
+                    renderItem={({item})=>this.renderItemFlat({item})}
+                    extraData={this.state}
+                    keyExtractor={item => toString(item.type)}
+                    showsVerticalScrollIndicator={false}
+                    // style={{height:hp('80%')}}
+                    />
+                    
 
-                    <View style={{width:wp('84%'), margin:hp('1%'), justifyContent:'center', alignItems:'center', flexDirection:'row'}}>
-                        <View style={{borderRadius:wp('2%'), backgroundColor:'rgba(255,255,255,0.7)', borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('42%'), justifyContent:'center', alignItems:'center'}}>
-                            <Text style={{fontSize:wp('4.2%'), color:'#7E7560', paddingTop:wp('1%'), fontWeight:'700'}}> تاريخ الذهاب </Text>
-                            <Text style={{fontSize:wp('3.8%'), color:'black', paddingBottom:wp('1%'), fontWeight:'700'}}> الجمعة 25 يناير 2019 </Text>
-                        </View>
-                        <View style={{borderRadius:wp('2%'), backgroundColor:'rgba(255,255,255,0.7)', borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('42%'), justifyContent:'center', alignItems:'center'}}>
-                            <Text style={{fontSize:wp('4.2%'), color:'#7E7560', paddingTop:wp('1%'), fontWeight:'700'}}> تاريخ العودة </Text>
-                            <Text style={{fontSize:wp('3.8%'), color:'black', paddingBottom:wp('1%'), fontWeight:'700'}}> السبت 26 يناير 2019 </Text>
-                        </View>
-                    </View>
-
-                    <View style={{borderRadius:wp('2%'), backgroundColor:'rgba(255,255,255,0.7)', borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('84%'), justifyContent:'center', alignItems:'center'}}>
-                        <Text style={{fontSize:wp('4.2%'), color:'#7E7560', paddingTop:wp('1%'), fontWeight:'700'}}> عدد الأفراد </Text>
-                        <Text style={{fontSize:wp('4.2%'), color:'black', paddingBottom:wp('1%'), fontWeight:'700'}}> فرد واحد </Text>
-                    </View>
-                       
-                    <View style={{width:wp('84%'), margin:hp('1%'), justifyContent:'center', alignItems:'center', flexDirection:'row'}}>
-                        <TouchableOpacity style={{borderRadius:wp('2%'), backgroundColor:'rgba(255,255,255,0.7)', borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('42%'), justifyContent:'center', alignItems:'center'}}>
-                            <Text style={{fontSize:wp('4.2%'), marginBottom:hp('3.5%'), color:'#7E7560', paddingTop:wp('1%'), fontWeight:'700'}}> خصم خاص </Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{borderRadius:wp('2%'), backgroundColor:'rgba(255,255,255,0.7)', borderColor:'#7E7560', borderWidth:wp('0.2%'), width:wp('42%'), justifyContent:'center', alignItems:'center'}}>
-                            <Text style={{fontSize:wp('4.2%'), marginBottom:hp('3.5%'), color:'#7E7560', paddingTop:wp('1%'), fontWeight:'700'}}> بروموكود </Text>
-                        </TouchableOpacity>
-                    </View>
-
+                    
                     <View style={{justifyContent:'center', alignItems:'center'}}>
-                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}} onPress={()=>{this.props.navigation.navigate('Payment')}}>
+                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}} onPress={()=>{this.props.navigation.navigate('Book1')}}>
                             <Image source={ButtonBG} style={{width:wp('30%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
                                 <View>
-                                <Text style={styles.buttonText}> موافق </Text>
+                                <Text style={styles.buttonText}> {localization.agree} </Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                 </View>
-                    
-
+           
 
             </ImageBackground>
          )

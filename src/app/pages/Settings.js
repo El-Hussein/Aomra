@@ -16,6 +16,7 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import localization from '../localization/localization';
 
 import BG from '../../Imag/Artboard2/BG.png';
 import Logo from '../../Imag/Artboard2/Logo.png';
@@ -50,7 +51,7 @@ class Artboard2 extends Component{
          return (
             <ImageBackground source={BG}  style={styles.pageBG}>
                 {/* HEADER */}
-                <Header title="تسجيل الدخول" backScreen="Home" drawer={true}/>
+                <Header title={localization.signIn} backScreen="Home" drawer={true}/>
                 
                 
                 <View style={{justifyContent:'center', alignItems:'center'}}>
@@ -62,11 +63,11 @@ class Artboard2 extends Component{
                             <Image source={Edit} style={styles.image4}/>  
                             <TextInput
                                 style={styles.textInput}
-                                placeholder="الاسم"
+                                placeholder={localization.userName}
                                 value={this.state.userInfo.name}
                                 autoCorrect={false}
                                 returnKeyType="next"
-                                ref="name"
+                                ref="username"
                                 placeholderTextColor="#A3A3A3"
                                 underlineColorAndroid="transparent"
                             />
@@ -77,7 +78,7 @@ class Artboard2 extends Component{
                             <Image source={Edit} style={styles.image4}/> 
                             <TextInput
                                 style={styles.textInput}
-                                placeholder="البريد الاكتروني"
+                                placeholder={localization.email}
                                 value={this.state.userInfo.email}
                                 autoCorrect={false}
                                 returnKeyType="next"
@@ -92,7 +93,7 @@ class Artboard2 extends Component{
                             <Image source={Edit} style={styles.image4}/> 
                             <TextInput
                                 style={styles.textInput}
-                                placeholder="البلد"
+                                placeholder={localization.country}
                                 value={this.state.userInfo.country}
                                 autoCorrect={false}
                                 returnKeyType="next"
@@ -107,7 +108,7 @@ class Artboard2 extends Component{
                             <Image source={Edit} style={styles.image4}/> 
                             <TextInput
                                 style={styles.textInput}
-                                placeholder="المدينة"
+                                placeholder={localization.city}
                                 value={this.state.userInfo.city}
                                 autoCorrect={false}
                                 returnKeyType="next"
@@ -122,7 +123,7 @@ class Artboard2 extends Component{
                             <Image source={Edit} style={styles.image4}/> 
                             <TextInput
                                 style={styles.textInput}
-                                placeholder="العنوان"
+                                placeholder={localization.address}
                                 value={this.state.userInfo.address}
                                 autoCorrect={false}
                                 returnKeyType="next"
@@ -137,7 +138,7 @@ class Artboard2 extends Component{
                             <Image source={Edit} style={styles.image4}/> 
                             <TextInput
                                 style={styles.textInput}
-                                placeholder="رقم الهاتف"
+                                placeholder={localization.phoneNumber}
                                 value={this.state.userInfo.phone}
                                 autoCorrect={false}
                                 returnKeyType="next"
@@ -152,7 +153,7 @@ class Artboard2 extends Component{
                             <Image source={Edit} style={styles.image4}/> 
                             <TextInput
                                 style={styles.textInput}
-                                placeholder="كلمه المرور"
+                                placeholder={localization.password}
                                 value={this.state.userInfo.password}
                                 autoCorrect={false}
                                 returnKeyType="next"
@@ -168,7 +169,7 @@ class Artboard2 extends Component{
                             <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}}>
                                 <Image source={ButtonBG} style={{width:wp('30%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
                                 <View>
-                                    <Text style={styles.buttonText}> موافق </Text>
+                                    <Text style={styles.buttonText}> {localization.agree} </Text>
                                 </View>
                             </TouchableOpacity>
                         </View>

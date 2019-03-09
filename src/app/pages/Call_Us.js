@@ -15,6 +15,7 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import localization from '../localization/localization';
 
 import BG from '../../Imag/Artboard3/BG.png';
 import Logo from '../../Imag/Artboard3/Logo.png';
@@ -33,7 +34,7 @@ class Artboard3 extends Component{
          return (
             <ImageBackground source={BG}  style={styles.pageBG}>
                 {/* HEADER */}
-                <Header title="أتصل بنا" backScreen="Home" drawer={true}/>
+                <Header title={localization.callUs} backScreen="Home" drawer={true}/>
                 
                 
                 <View style={{justifyContent:'center', alignItems:'center'}}>
@@ -44,7 +45,7 @@ class Artboard3 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="الاسم"
+                            placeholder={localization.userName}
                             autoCorrect={false}
                             returnKeyType="next"
                             ref="username"
@@ -57,10 +58,10 @@ class Artboard3 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="رقم الهاتف"
+                            placeholder={localization.phoneNumber}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="username"
+                            ref="phone"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />
@@ -72,10 +73,10 @@ class Artboard3 extends Component{
                             multiline={true}
                             numberOfLines={5}
                             style={[styles.textInput, {height:hp('25%'), textAlignVertical: 'top', paddingTop:wp("2%")}]}
-                            placeholder="الرساله"
+                            placeholder={localization.messege}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="password"
+                            ref="messege"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />
@@ -86,7 +87,7 @@ class Artboard3 extends Component{
                         <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}}>
                             <Image source={ButtonBG} style={{width:wp('30%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
                             <View>
-                                <Text style={styles.buttonText}> ارسال </Text>
+                                <Text style={styles.buttonText}> {localization.send} </Text>
                             </View>
                         </TouchableOpacity>
                     </View>

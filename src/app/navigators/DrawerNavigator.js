@@ -6,7 +6,7 @@ import { createDrawerNavigator } from 'react-navigation';
 import {
     widthPercentageToDP as wp,
 } from 'react-native-responsive-screen';
-
+import {I18nManager} from 'react-native';
 import Home from '../pages/Home';
 // import Profile from '../pages/Profile';
 import Books from '../pages/Books';
@@ -75,7 +75,7 @@ export default RootNavigator = createDrawerNavigator(
     {
         showsVerticalScrollIndicator: true,
         contentComponent:props => <ContentDrawerComponent {...props}/> ,
-        drawerPosition: 'right',
+        drawerPosition: !I18nManager.isRTL? 'right':'left',
         drawerWidth:wp('85%'),
     }
 )

@@ -12,6 +12,7 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import localization from '../localization/localization';
 
 import BG from '../../Imag/Artboard7/BG.png';
 
@@ -24,7 +25,7 @@ class Artboard7 extends Component{
          return (
             <ImageBackground source={BG}  style={styles.pageBG}>
                 {/* HEADER */}
-                <Header title="فاتورة" backScreen="Book" drawer={true}/>
+                <Header title={localization.bill} backScreen="Book" drawer={true}/>
 
                 <View style={{marginHorizontal:wp('8%'), marginTop:hp('8%')}}>                   
 
@@ -33,7 +34,7 @@ class Artboard7 extends Component{
                             <Text style={{color:'black', fontSize:wp('4.2%'), fontWeight:'bold'}}> 2 فرد </Text>
                         </View>
                         <View style={{backgroundColor:'#7E7560', justifyContent:'center', alignItems:'flex-end', paddingRight:wp('2%'), height:hp('5.5%'), width:wp('28%'), borderTopRightRadius:wp('2%'), borderBottomRightRadius:wp('2%')}}>
-                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> عدد الافراد </Text>
+                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> {localization.numberOfPersons} </Text>
                         </View>
                     </View>
 
@@ -42,7 +43,7 @@ class Artboard7 extends Component{
                             <Text style={{color:'black', fontSize:wp('4.2%'), fontWeight:'bold'}}> 25 يناير 2019 </Text>
                         </View>
                         <View style={{backgroundColor:'#7E7560', justifyContent:'center', alignItems:'flex-end', paddingRight:wp('2%'), height:hp('5.5%'), width:wp('28%'), borderTopRightRadius:wp('2%'), borderBottomRightRadius:wp('2%')}}>
-                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> التاريخ </Text>
+                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> {localization.date} </Text>
                         </View>
                     </View>
 
@@ -51,7 +52,7 @@ class Artboard7 extends Component{
                             <Text style={{color:'black', fontSize:wp('4.2%'), fontWeight:'bold'}}> الجمعة </Text>
                         </View>
                         <View style={{backgroundColor:'#7E7560', justifyContent:'center', alignItems:'flex-end', paddingRight:wp('2%'), height:hp('5.5%'), width:wp('28%'), borderTopRightRadius:wp('2%'), borderBottomRightRadius:wp('2%')}}>
-                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> اليوم </Text>
+                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> {localization.day} </Text>
                         </View>
                     </View>
 
@@ -60,7 +61,7 @@ class Artboard7 extends Component{
                             <Text style={{color:'black', fontSize:wp('4.2%'), fontWeight:'bold'}}> 2200 ريال </Text>
                         </View>
                         <View style={{backgroundColor:'#7E7560', justifyContent:'center', alignItems:'flex-end', paddingRight:wp('2%'), height:hp('5.5%'), width:wp('28%'), borderTopRightRadius:wp('2%'), borderBottomRightRadius:wp('2%')}}>
-                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> قيمة الرحلة </Text>
+                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> {localization.travelCost} </Text>
                         </View>
                     </View>
 
@@ -69,7 +70,7 @@ class Artboard7 extends Component{
                             <Text style={{color:'black', fontSize:wp('4.2%'), fontWeight:'bold'}}> 68593 </Text>
                         </View>
                         <View style={{backgroundColor:'#7E7560', justifyContent:'center', alignItems:'flex-end', paddingRight:wp('2%'), height:hp('5.5%'), width:wp('28%'), borderTopRightRadius:wp('2%'), borderBottomRightRadius:wp('2%')}}>
-                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> رقم الحجز </Text>
+                            <Text style={{color:'white', fontSize:wp('4.2%'), fontWeight:'bold'}}> {localization.bookNumber} </Text>
                         </View>
                     </View>
                     

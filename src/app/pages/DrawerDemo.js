@@ -16,6 +16,8 @@ import {
 } from 'react-native-responsive-screen';
 import { createDrawerNavigator } from 'react-navigation';
 import Header from '../components/Header';
+import localization from '../localization/localization';
+
 
 import ContentDrawerCompnent from '../components/ContentDrawerCompnent';
 
@@ -37,13 +39,13 @@ export class Artboard11 extends Component{
             <ImageBackground source={BG}  style={styles.pageBG}>
                 
                 {/* HEADER */}
-                <Header title="المحادثة"/>
+                <Header title={localization.chat}/>
 
                 <View style={{justifyContent:'center', alignItems:'center', height:hp('13%'), width:wp('100%'), backgroundColor:'white', borderTopColor:'#ECECEC', borderTopWidth:hp('0.4%'), marginTop:100}}>
                     <View style={{height:hp('6.5%'), marginRight:wp('10%'), justifyContent:'center', alignItems:'center'}}>
                         <TextInput
                             style={styles.textInput}
-                            placeholder="ادخل رسالة"
+                            placeholder={localization.typeMessege}
                             autoCorrect={false}
                             returnKeyType="next"
                             ref="username"

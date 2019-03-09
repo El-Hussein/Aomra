@@ -6,7 +6,8 @@ import {
     Image,
     TextInput,
     TouchableOpacity,
-    StyleSheet
+    StyleSheet,
+    I18nManager
 } from 'react-native';
 import {
     widthPercentageToDP as wp,
@@ -15,6 +16,7 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import localization from '../localization/localization';
 
 // import Menu from '../../Imag/Artboard1/Menu.png';
 // import Back from '../../Imag/Artboard1/Back.png';
@@ -52,9 +54,9 @@ class Artboard5 extends Component{
                     <TouchableOpacity  onPress={()=>{this.props.navigation.navigate('OrderNav')}}>
                         <Image source={ButtonBGO} style={{position:'absolute', right:wp('0%'), width:wp('66.5%'), height:hp('13.4%'), resizeMode:'contain', opacity:0.9}}/>
                         <View style={{justifyContent:'center', alignItems:'center', width:wp('66.5%'), height:hp('13.4%'), marginBottom:hp('5%'),}}>
-                                <Text style={{color:'white', fontSize:wp('7%'), fontWeight:'bold'}}>العادي</Text>
-                                <Text style={{color:'black', fontSize:wp('5%'), fontWeight:'bold'}}>باص عادي - بدون وجبه</Text>
-                                <Image source={Arrow} style={{position:'relative', top:hp('-4.5%'), left:wp('-26%'), width:wp('3%'), height:wp('3%'), resizeMode:'contain'}}/>
+                                <Text style={{color:'white', fontSize:wp('7%'), fontWeight:'bold'}}>{localization.ordinary}</Text>
+                                <Text style={{color:'black', fontSize:wp('4%'), fontWeight:'bold'}}>{localization.ordinaryDesc}</Text>
+                                <Image source={Arrow} style={{position:'relative', top:hp('-4.5%'), left:wp('-26%'), width:wp('3%'), height:wp('3%'), resizeMode:'contain', transform:[{rotateZ:I18nManager.isRTL?'180deg':'0deg'}]}}/>
                         </View>
                     </TouchableOpacity>
 
@@ -62,9 +64,9 @@ class Artboard5 extends Component{
                         <Image source={ButtonBGS} style={{position:'absolute', right:wp('0%'), width:wp('66.5%'), height:hp('13.4%'), resizeMode:'contain', opacity:0.9}}/>
                         <View style={{justifyContent:'center', alignItems:'center', width:wp('66.5%'), height:hp('13.4%'), marginBottom:hp('5%'),}}>
                             <View style={{justifyContent:'center', alignItems:'center'}}>
-                                <Text style={{color:'white', fontSize:wp('7%'), fontWeight:'bold'}}>الكلاسيكك</Text>
-                                <Text style={{color:'black', fontSize:wp('5%'), fontWeight:'bold'}}>باص عادي - بدون وجبه</Text>
-                                <Image source={Arrow} style={{position:'relative', top:hp('-4.5%'), left:wp('-26%'), width:wp('3%'), height:wp('3%'), resizeMode:'contain'}}/>
+                                <Text style={{color:'white', fontSize:wp('7%'), fontWeight:'bold'}}>{localization.classic}</Text>
+                                <Text style={{color:'black', fontSize:wp('4%'), fontWeight:'bold'}}>{localization.classicDesc}</Text>
+                                <Image source={Arrow} style={{position:'relative', top:hp('-4.5%'), left:wp('-26%'), width:wp('3%'), height:wp('3%'), resizeMode:'contain', transform:[{rotateZ:I18nManager.isRTL?'180deg':'0deg'}]}}/>
                             </View>
                         </View>
                     </TouchableOpacity>
@@ -73,10 +75,10 @@ class Artboard5 extends Component{
                         <Image source={ButtonBGG} style={{position:'absolute', right:wp('0%'), width:wp('66.5%'), height:hp('13.4%'), resizeMode:'contain', opacity:0.9}}/>
                         <View style={{justifyContent:'center', alignItems:'center', width:wp('66.5%'), height:hp('13.4%'), marginBottom:hp('5%'),}}>
                             <View style={{justifyContent:'center', alignItems:'center'}}>
-                                <Text style={{color:'white', fontSize:wp('7%'), fontWeight:'bold'}}>الذهبية</Text>
-                                <Text style={{color:'black', fontSize:wp('4.0%'), fontWeight:'bold', height:hp('3%')}}>باص فاخر - طيران</Text>
-                                <Text style={{color:'black', fontSize:wp('4.0%'), fontWeight:'bold', height:hp('3%')}}>مع وجبه مميزه</Text>
-                                <Image source={Arrow} style={{position:'relative', top:hp('-5.5%'), left:wp('-26%'), width:wp('3%'), height:wp('3%'), resizeMode:'contain'}}/>
+                                <Text style={{color:'white', fontSize:wp('7%'), fontWeight:'bold'}}>{localization.gold}</Text>
+                                <Text style={{color:'black', fontSize:wp('4.0%'), fontWeight:'bold', height:hp('3%')}}>{localization.excellent}</Text>
+                                <Text style={{color:'black', fontSize:wp('4.0%'), fontWeight:'bold', height:hp('3%')}}>{localization.goldDesc}</Text>
+                                <Image source={Arrow} style={{position:'relative', top:hp('-5.5%'), left:wp('-26%'), width:wp('3%'), height:wp('3%'), resizeMode:'contain', transform:[{rotateZ:I18nManager.isRTL?'180deg':'0deg'}]}}/>
                             </View>
                         </View>
                     </TouchableOpacity>

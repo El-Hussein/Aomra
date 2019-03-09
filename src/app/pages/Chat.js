@@ -19,6 +19,7 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import localization from '../localization/localization';
 
 import BG from '../../Imag/Artboard10/BG.png';
 import Loc from '../../Imag/Artboard10/Loc.png';
@@ -50,7 +51,7 @@ class Artboard10 extends Component{
             <ImageBackground source={BG}  style={styles.pageBG}>
                 
                 {/* HEADER */}
-                <Header title="المحادثة" backScreen="Home"/>
+                <Header title={localStorage.chat} backScreen="Home"/>
                 <FlatList 
                     style={styles.list}
                     data={this.state.data}
@@ -91,10 +92,10 @@ class Artboard10 extends Component{
                     <View style={{height:hp('6.5%'), marginRight:wp('10%'), justifyContent:'center', alignItems:'center'}}>
                         <TextInput
                             style={styles.textInput}
-                            placeholder="ادخل رسالة"
+                            placeholder={localStorage.typeMessege}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="username"
+                            ref="typeMessege"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />

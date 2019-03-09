@@ -16,6 +16,7 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import localization from '../localization/localization';
 
 import BG from '../../Imag/Artboard1/BG.png';
 import Logo from '../../Imag/Artboard1/Logo.png';
@@ -35,7 +36,7 @@ class Artboard1 extends Component{
          return (
             <ImageBackground source={BG}  style={styles.pageBG}>
                 {/* HEADER */}
-                <Header title="الدخول"/>
+                <Header title={localization.login}/>
                 
                 
                 <View style={{justifyContent:'center', alignItems:'center', padding:hp('4%')}}>
@@ -46,10 +47,10 @@ class Artboard1 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="رقم الهاتف"
+                            placeholder={localization.phoneNumber}
                             autoCorrect={false}
                             returnKeyType="next"
-                            ref="username"
+                            ref="phone"
                             placeholderTextColor="#A3A3A3"
                             underlineColorAndroid="transparent"
                         />
@@ -59,7 +60,7 @@ class Artboard1 extends Component{
                     <View style={styles.inputBorder} >
                         <TextInput
                             style={styles.textInput}
-                            placeholder="كلمة المرور"
+                            placeholder={localization.password}
                             autoCorrect={false}
                             returnKeyType="next"
                             ref="password"
@@ -69,28 +70,28 @@ class Artboard1 extends Component{
                         <Image source={Lock} style={styles.image4_5}/>
                     </View>
                     <TouchableOpacity>
-                        <Text style={{color:'#585858', textAlign:'left', fontSize:wp('3.5%'), fontWeight:'600'}}> نسيت كلمة المرور </Text>
+                        <Text style={{color:'#585858', textAlign:'left', fontSize:wp('3.5%'), fontWeight:'600'}}> {localization.forgetPassword} </Text>
                     </TouchableOpacity>
 
                     <View style={{justifyContent:'center', alignItems:'center'}}>
-                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}}>
-                            <Image source={ButtonBG} style={{width:wp('30%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
+                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('35%'), height:hp('10%')}}>
+                            <Image source={ButtonBG} style={{width:wp('35%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
                             <View>
-                                <Text style={styles.buttonText}> تسجيل الدخول </Text>
+                                <Text style={styles.buttonText}> {localization.signIn} </Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View style={{justifyContent:'space-between', marginBottom:hp('3%'), marginHorizontal:wp('3%'), flexDirection:'row'}}>
-                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}} onPress={()=>{this.props.navigation.navigate('Home')}}>
-                            <Image source={ButtonBGS} style={{width:wp('30%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
+                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('35%'), height:hp('10%')}} onPress={()=>{this.props.navigation.navigate('Home')}}>
+                            <Image source={ButtonBGS} style={{width:wp('35%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
                             <View>
-                                <Text style={styles.buttonText}> تخطي التسجيل </Text>
+                                <Text style={styles.buttonText}> {localization.skipLogin} </Text>
                             </View>
                         </TouchableOpacity>
-                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}} onPress={()=>{this.props.navigation.navigate('Register')}}>
-                            <Image source={ButtonBGS} style={{width:wp('30%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
+                        <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('35%'), height:hp('10%')}} onPress={()=>{this.props.navigation.navigate('Register')}}>
+                            <Image source={ButtonBGS} style={{width:wp('35%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
                             <View>
-                                <Text style={styles.buttonText}> عضو جديد </Text>
+                                <Text style={styles.buttonText}> {localization.newMember} </Text>
                             </View>
                         </TouchableOpacity>
                     </View>

@@ -4,6 +4,7 @@
 import { createStackNavigator } from 'react-navigation';
 
 import Book from '../pages/Book';
+import Book1 from '../pages/Book1';
 import Thanks from '../pages/Thanks';
 import Payment from '../pages/Payment';
 import Order_Recipt from '../pages/Order_Recipt';
@@ -15,6 +16,12 @@ export default OrderNavigator = createStackNavigator(
             screen: Book,
             navigationOption:{
                 title:"Book", 
+            }
+        },
+        Book1: {
+            screen: Book1,
+            navigationOption:{
+                title:"Book1", 
             }
         },
         Order_Recipt: {

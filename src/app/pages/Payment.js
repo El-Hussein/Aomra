@@ -15,6 +15,7 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import localization from '../localization/localization';
 
 import BG from '../../Imag/Artboard8/BG.png';
 import Cash from '../../Imag/Artboard8/Cash.png';
@@ -30,11 +31,11 @@ class Artboard8 extends Component{
          return (
             <ImageBackground source={BG}  style={styles.pageBG}>
                 {/* HEADER */}
-                <Header title="الدفع" backScreen="Order_Recipt" drawer={true}/>
+                <Header title={localization.payment} backScreen="Order_Recipt" drawer={true}/>
 
                 <View style={{marginHorizontal:wp('8%'), marginTop:hp('4%'), justifyContent:'center', alignItems:'center'}}>                   
 
-                    <Text style={{color:'black', fontSize:wp('6%'), fontWeight:'600'}}> أختر وسيلة الدفع </Text>                    
+                    <Text style={{color:'black', fontSize:wp('6%'), fontWeight:'600'}}> {localization.choosePaymentMethod} </Text>                    
                     
                     <View style={{backgroundColor:'rgba(200, 200, 200, 0.7)', width:'60%', height:hp('7%'), marginVertical:hp('4%'), borderRadius:wp('2%')}}>
                         <TouchableOpacity onPress={()=>{this.props.navigation.navigate('Thanks')}}>

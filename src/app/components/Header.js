@@ -6,6 +6,7 @@ import {
     View,
     Text,
     TouchableOpacity,
+    I18nManager
 } from 'react-native'
 import {
     widthPercentageToDP as wp,
@@ -30,7 +31,7 @@ class Header extends React.Component {
             <View style={styles.header}>
                 {/* <TouchableOpacity  onPress={()=>{this.props.navigation.goBack()}}> */}
                 <TouchableOpacity  onPress={()=>this.props.navigation.dispatch(NavigationActions.back())}>
-                    <Image source={Back} style={styles.image4_5}/>
+                    <Image source={Back} style={[styles.image4_5, {transform:[{rotateZ:I18nManager.isRTL?'180deg':'0deg'}]}]}/>
                 </TouchableOpacity>
                 <View style={styles.rowCenter}>
                     <Text style={styles.textHeader}> {this.props.title} </Text>

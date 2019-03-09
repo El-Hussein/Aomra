@@ -15,6 +15,7 @@ import {
     removeOrientationListener as rol
 } from 'react-native-responsive-screen';
 import Header from '../components/Header';
+import localization from '../localization/localization';
 
 import BG from '../../Imag/Artboard4/BG.png';
 import ButtonBG from '../../Imag/Artboard1/ButtonBG.png';
@@ -30,7 +31,7 @@ class Artboard4 extends Component{
             <ImageBackground source={BG}  style={styles.pageBG}>
 
                 {/* HEADER */}
-                <Header title="الشروط والأحكام" backScreen="Home" drawer={true}/>
+                <Header title={localization.termsConditions} backScreen="Home" drawer={true}/>
                 
 
                 <View style={{marginHorizontal:wp('10%'), marginVertical:wp('15%')}}>
@@ -43,7 +44,7 @@ class Artboard4 extends Component{
                     <TouchableOpacity style={{justifyContent:'center', alignItems:'center', width:wp('30%'), height:hp('10%')}}>
                             <Image source={ButtonBG} style={{width:wp('30%'), height:hp('10%'), right:wp('0%'), top:hp('0%'), resizeMode:'contain', justifyContent:'center', position:'absolute'}}/>
                                 <View>
-                                <Text style={styles.buttonText}> موافق </Text>
+                                <Text style={styles.buttonText}> {localization.agree} </Text>
                             </View>
                         </TouchableOpacity>
                     </View>
